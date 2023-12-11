@@ -1,0 +1,67 @@
+
+
+maps_dict = {
+    'All Maps': 'all',
+    'Unlicensed Zepetta Factory': 'fac',
+    'Abandoned Pirate Ship - Late Night': 'night',
+    'Abandoned Pirate Ship - Noon': 'noon',
+    'Abandoned Pirate Ship - Proto': 'proto',
+    'Unlicensed Space Dock - Stratesphere': 'strato',
+    'Abandoned Pirate Ship - Sunset': 'sunset',
+}
+
+tiers_dict = {
+    'All Tiers': 'all', 
+    'Masters': 'master', 
+    'Diamonds': 'diamond', 
+    'Platinums': 'platinum', 
+    'Golds': 'gold', 
+    'Silvers': 'silver', 
+    'Bronzes': 'bronze'
+}
+
+avatar_map = {
+    'don': '/assets/T_UI_Portrait_Tiny_Donquixote.png',
+    'peter': '/assets/T_UI_Portrait_Tiny_Peter.png',
+    'alice': '/assets/T_UI_Portrait_Tiny_Alice.png',
+    'kaiser': '/assets/T_UI_Portrait_Tiny_Kaiser.png',
+    'wukong': '/assets/T_UI_Portrait_Tiny_Wukong.png',
+    'hook': '/assets/T_UI_Portrait_Tiny_Hook.png',
+    'cat': '/assets/T_UI_Portrait_Tiny_MasterCat.png',
+    'marina': '/assets/T_UI_Portrait_Tiny_Marina.png',
+    'ravi': '/assets/T_UI_Portrait_Tiny_Ravi.png',
+    'flare': '/assets/T_UI_Portrait_Tiny_Flare.png',
+    'victor': '/assets/T_UI_Portrait_Tiny_Victor.png',
+    'nui': '/assets/T_UI_Portrait_Tiny_Nui.png',
+    'goldie': '/assets/T_UI_Portrait_Tiny_Goldie.png',
+    'jacko': '/assets/T_UI_Portrait_Tiny_JackO.png',
+    'loren': '/assets/T_UI_Portrait_Tiny_Loren.png',
+    'aoi': '/assets/T_UI_Portrait_Tiny_Aoi.png',
+    'ali': '/assets/T_UI_Portrait_Tiny_Ali.png',
+    'snow': '/assets/T_UI_Portrait_Tiny_Snow.png',
+    'molly': '/assets/T_UI_Portrait_Tiny_Molly.png',
+    'maya': '/assets/T_UI_Portrait_Tiny_Maya.png',
+    'rambert': '/assets/T_UI_Portrait_Tiny_Rambert.png',
+    'timun': '/assets/T_UI_Portrait_Tiny_Timun.png',
+    'yong': '/assets/T_UI_Portrait_Tiny_YongYong.png',
+    'robin': '/assets/T_UI_Portrait_Tiny_Robin.png',
+    'kurenai': '/assets/T_UI_Portrait_Tiny_Kurenai.png',
+    'parfait': '/assets/T_UI_Portrait_Tiny_Parfait.png',
+    'wq': '/assets/T_UI_Portrait_Tiny_WitchQueen.png',
+    'brick': '/assets/T_UI_Portrait_Tiny_Brick.png',
+    'gumi': '/assets/T_UI_Portrait_Tiny_Gumi.png',
+    'cindy': '/assets/T_UI_Portrait_Tiny_Cindy.png',
+    'octavia': '/assets/T_UI_Portrait_Tiny_Octavia.png',
+    'rapunzel': '/assets/T_UI_Portrait_Tiny_Rapunzel.png',
+    'red': '/assets/T_UI_Portrait_Tiny_Red.png',
+    'wolfgang': '/assets/T_UI_Portrait_Tiny_Wolfgang.png',
+    'zepp': '/assets/T_UI_Portrait_Tiny_Zeppetta.png',
+    'ducky': '/assets/T_UI_Portrait_Tiny_Ducky.png',
+    'health': '/assets/T_UI_Icon_Enchant_Fortitude.png',
+    'attack': '/assets/T_UI_Icon_Enchant_Aggression.png',
+    'lightning': '/assets/T_UI_Icon_Enchant_Lightning.png',
+    'barrier':  '/assets/T_UI_Icon_Enchant_Barrier.png',
+    'beam': '/assets/T_UI_Icon_Enchant_Beam.png',
+    'pink': '/assets/T_UI_Icon_Enchant_Unyielding.png',
+}
+

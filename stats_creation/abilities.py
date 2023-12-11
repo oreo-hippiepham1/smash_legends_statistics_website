@@ -26,7 +26,6 @@ def get_abi_count(df):
 
     for ability in abi_list:
         abi_count[ability+'_pickrate'] = round(abi_count[ability+'_pick'] / abi_total * 100, 2)
-        #abi_count[ability+'_winrate'] = abi_count[ability+'_win'] / abi_count[ability+'_pick']
     
     return abi_count
 
@@ -34,7 +33,7 @@ def get_abi(df, legend):
     df = get_abi_count(df)
 
     df = df.loc[df['legend']==legend, :]
-    abi_list = ['abi0', 'abi1', 'abi2', 'abi3', 'abi4', 'abi5']
+    abi_list = ['abi1', 'abi2', 'abi3', 'abi4', 'abi5']
 
     return_list = ['legend']
     return_list.extend([abi+'_pickrate' for abi in abi_list])

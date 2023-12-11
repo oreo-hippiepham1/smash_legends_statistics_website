@@ -1,22 +1,299 @@
-.styled-table {
-    border-collapse: collapse;
-    width: 100%;
+//No JavaScript, only css (scss because I'm lazy), and html
+//click 'view mobile (or desktop) site' in top left
+//uses em's to scale all elements, and checkboxes for switching views/opening menus
+
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
+
+$text: rgba(50, 50, 0, 1);
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Lato", sans-serif;
+  color: $text;
 }
 
-.styled-table th, .styled-table td {
-    padding: 8px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
+body {
+  background: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  font-size: 1.1vw;
 }
 
-.styled-table th {
-    background-color: #030202;
-    font-weight: bold;
+#aspect-checkbox {
+  display: none;
 }
 
-center {
-    border: 5px solid;
-    margin: auto;
-    width: 50%;
-    padding: 10px;
+.input-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #fff;
+  padding: 10px;
+  user-select: none;
+  cursor: pointer;
+  transition: 0.3s all ease;
+
+  &::after {
+    content: "View Mobile Site";
   }
+}
+
+.button {
+  transition: 0.3s invert ease, 0.3s transform ease;
+  &:hover {
+    filter: invert(0.2);
+  }
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+.screen {
+  position: relative;
+  width: 80vw;
+  height: calc((9 / 16) * 80vw);
+  background: #d4d3cb;
+
+  border-radius: 15px;
+  overflow-y: auto;
+
+  transition: 0.3s all ease;
+}
+
+.navbar {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 40px;
+  gap: 40px;
+
+  > .title {
+    font-size: 2em;
+    transition: 0.1s font-size;
+  }
+  > .menu {
+    display: flex;
+    position: relative;
+    height: 100%;
+    flex-grow: 1;
+
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 40px;
+
+    > .menu-item {
+      height: fit-content;
+      padding: 1em 0;
+      font-size: 1.2em;
+      cursor: pointer;
+      user-select: none;
+    }
+  }
+}
+
+#hamburger-checkbox {
+  display: none;
+}
+.hamburger {
+  display: none;
+}
+
+.hero {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-top: 5em;
+  flex-direction: row;
+  > .half {
+    display: block;
+    position: relative;
+    height: 100%;
+    width: 50%;
+    padding: 0 40px;
+    padding-bottom: 5em;
+  }
+  > .left-half {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  > .right-half {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  .major {
+    font-size: 3em;
+    line-height: 1.2em;
+    font-weight: 600;
+  }
+  .minor {
+    font-size: 2em;
+    font-weight: 500;
+  }
+  .butt {
+    cursor: pointer;
+    user-select: none;
+
+    padding: 0.25em 0.5em;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    font-size: 1.2em;
+
+    margin-top: 0.5em;
+
+    &::after {
+      content: "→";
+      transition: 0.3s all ease;
+      padding-left: 2px;
+    }
+    &:hover {
+      &::after {
+        padding-left: 8px;
+      }
+    }
+  }
+  .circle {
+    width: 20em;
+    height: 20em;
+    border-radius: 50%;
+    background: rgba(50, 50, 0, 0.2);
+  }
+}
+
+//handle mobile version
+#aspect-checkbox:checked ~ .input-label {
+  &::after {
+    content: "View Desktop Site";
+  }
+}
+#aspect-checkbox:checked ~ .screen {
+  height: 80vh;
+  width: calc((9 / 19.5) * 80vh);
+  // font-size: 12px;
+  font-size: 1.3vh;
+  > .navbar {
+    padding: 0 1em;
+    > .menu {
+      // box-sizing: default;
+      position: absolute;
+      display: none;
+      top: 0;
+      right: 0;
+      height: fit-content;
+      width: fit-content;
+      flex-direction: column;
+      gap: 0;
+
+      padding-top: calc(4.5em - 2px);
+      margin: 0.5em;
+
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(2px);
+      border-radius: 5px;
+      overflow: hidden;
+
+      > .menu-item {
+        padding: 1em 3em;
+        border-top: 1px solid rgba(0, 0, 0, 0.2);
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(2px);
+        font-size: 1.5em;
+      }
+    }
+    > .hamburger {
+      position: absolute;
+      height: 4em;
+      width: 4em;
+      right: 0;
+      top: 0;
+      margin: 0.5em;
+      padding: 0.5em;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0.75em;
+      cursor: pointer;
+
+      z-index: 12;
+
+      > span {
+        width: 100%;
+        height: 3px;
+        border-bottom: 3px solid $text;
+        border-radius: 10px;
+        transition: 0.3s all ease;
+        &:nth-child(1),
+        &:nth-child(3) {
+          width: 80%;
+        }
+      }
+    }
+  }
+  #hamburger-checkbox {
+    &:checked ~ .hamburger {
+      //menu open
+      transition: 0.3s transform ease;
+      transform: translateY(0.25em) scale(0.8);
+
+      > span {
+        &:nth-child(1) {
+          transform: translateY(1em) rotate(45deg);
+          width: 100%;
+        }
+        &:nth-child(2) {
+          opacity: 0;
+        }
+        &:nth-child(3) {
+          transform: translateY(-1em) rotate(-45deg);
+          width: 100%;
+        }
+      }
+    }
+    &:checked ~ .menu {
+      display: flex;
+    }
+  }
+  > .hero {
+    flex-direction: column-reverse;
+    > .half {
+      height: 50%;
+      width: 100%;
+      padding: 0 10%;
+    }
+    > .right-half {
+      align-items: center;
+    }
+  }
+}
+
+#credits {
+  display: block;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  gap: 15px;
+  padding: 10px;
+  * {
+    color: #fff;
+  }
+}

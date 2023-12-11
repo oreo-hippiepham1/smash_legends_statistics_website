@@ -1,7 +1,7 @@
 # Smash Legends Statistics Tracker
 
 ## Introduction
-[Smash Legends]([url](https://smashlegends.com/)) is a fast-paced, multiplayer action game featuring a diverse roster of unique characters. Currently the game has north of 10M downloads across 3 stores: Steam, Apple Store, Google Play Store. The Smash Legends Statistics Tracker is a website that provides valuable insights into the game by tracking various statistics.
+[Smash Legends](https://smashlegends.com/) is a fast-paced, multiplayer action game featuring a diverse roster of unique characters. Currently the game has north of 10M downloads across 3 stores: Steam, Apple Store, Google Play Store. The Smash Legends Statistics Tracker is a website that provides valuable insights into the game by tracking various statistics.
 
 ## Statistics Tracking
 The tracker monitors key metrics such as legend pick rate, win rate, ability/enchantment pick rate based on different maps and skill levels Smash Legends. These statistics offer valuable information about the popularity and performance of characters in the game.  

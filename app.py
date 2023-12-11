@@ -9,6 +9,7 @@ from stats_creation import abilities, enchantments
 
 # App
 app = Dash(__name__, external_stylesheets=['styles.css', 'https://codepen.io/chriddyp/pen/bWLwgP.css']) 
+server = app.server
 
 DATA_PATH = './data/'
 data = pd.read_csv(DATA_PATH+'df.csv')

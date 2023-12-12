@@ -9,6 +9,7 @@ import dash_bootstrap_components as dbc
 
 import win_vs_pick
 
+
 # App
 app = Dash(__name__, external_stylesheets=["https://codepen.io/chriddyp/pen/bWLwgP.css"]) 
 # app.css.append_css({

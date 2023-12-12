@@ -5,7 +5,6 @@ from dash import Dash, html, dash_table, dcc, callback, Output, Input
 from viz import create_plots
 from custom_utils import mapping, remapping, preprocess, tf
 from stats_creation import abilities, enchantments
-import dash_bootstrap_components as dbc
 
 # App
 app = Dash(__name__, external_stylesheets=["https://codepen.io/chriddyp/pen/bWLwgP.css"]) 

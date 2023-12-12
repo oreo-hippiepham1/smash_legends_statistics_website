@@ -2,10 +2,12 @@ import pandas as pd
 from dash import Dash, html, dash_table, dcc, callback, Output, Input
 
 
-from viz import create_plots
+from viz import create_plots, pick_rate, win_rate
 from custom_utils import mapping, remapping, preprocess, tf
 from stats_creation import abilities, enchantments
 import dash_bootstrap_components as dbc
+
+import win_vs_pick
 
 
 # App
@@ -139,9 +141,23 @@ app.layout = html.Div(className='docs-example', style={'padding': 20}, children=
     # Ability Table
     my_output_ability,
     
+    # Pick Rate vs Win Rate
+    html.H3(children='WinRates Vs PickRates for Legends (map, tier - sensitive)'),
+
+    # Show Icons? 
+    html.Div([
+            html.Div(html.H5('Show Icons: '), style={'padding': 5,'flex':1}, ),
+            html.Div(dcc.RadioItems(options=['Yes', 'No'], value='Yes', id='showicons-radio'), style={'flex':1}, ),
+        ], className='container', style={'padding': 0, 'flex':1, 'border':'solid'}),
+    
+    # Win vs Pick
+    html.Div([
+        dcc.Graph(figure={}, id='winpick-graph'),
+    ], style={'width': '100%', 'display': 'block'}),
+
     
     # Title
-    html.H3(children='Pick-rates for Legends (map, tier - sensitive)'),
+    html.H3(children='Winrates and Pickrates for Legends (map, tier - sensitive)'),
 
     # Sorted? 
     html.Div([
@@ -154,13 +170,11 @@ app.layout = html.Div(className='docs-example', style={'padding': 20}, children=
         dcc.Graph(figure={}, id='maptier-pick-pct'),
     ], style={'width': '100%', 'display': 'inline-block'}),
 
-    
-
     # Win Rate
-    html.H3(children='Win-rates for Legends (map, tier - sensitive)'),
     html.Div([
         dcc.Graph(figure={}, id='maptier-win-pct'),
     ], style={'width': '100%', 'display': 'block'}),
+
 ])
 
 
@@ -179,6 +193,31 @@ def generate_enchantment(map_chosen, tier_chosen, legend):
 
     df = enchantments.get_enchant(df_onehot, legend) 
     return generate_enchantment_count_table(df)
+
+"""
+===== CALLBACKS ===== 
+"""
+
+@callback(
+    Output(component_id='winpick-graph', component_property='figure'),
+    Input(component_id='dropdown-map', component_property='value'),
+    Input(component_id='dropdown-tier', component_property='value'),
+    Input(component_id='showicons-radio', component_property='value')
+)
+def pickrate_vs_winrate(map_chosen, tier_chosen, show_icons):
+    # Filter maps and tiers
+    map_col = mapping.maps_dict[map_chosen]
+    tier_col = mapping.tiers_dict[tier_chosen]
+
+    if show_icons == 'Yes':
+        show_icons = True
+    else:
+        show_icons = False
+
+    winpick_df = win_vs_pick.win_vs_pick_df(df, map_col, tier_col)
+    fig = win_vs_pick.plot_win_vs_pick(winpick_df, show_icons)
+
+    return fig
 
 
 @callback(
@@ -221,7 +260,7 @@ def choose_map_for_fig(map_chosen, tier_chosen, ordered):
     
     return [fig1, fig2]
 
-
+    
 
 if __name__ == '__main__':
     app.run(debug=True)

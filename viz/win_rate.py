@@ -14,7 +14,7 @@ def win_pct_legend(df, legend):
     return round((temp.sum()['win_count'] / temp.sum()['match_count']) * 100, 2)
 
 
-def win_rate_tier_map(df, map_col, tier_col, ordered) -> pd.DataFrame:
+def win_rate_tier_map(df, map_col, tier_col, ordered=False) -> pd.DataFrame:
     def win_rate(df):
         df['winrate'] = (df['win_count'] / df['match_count']) * 100
         wpct = df.groupby('legend')['winrate'].mean().reset_index()

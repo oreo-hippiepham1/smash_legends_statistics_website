@@ -11,12 +11,12 @@ maps_dict = {
 }
 
 tiers_dict = {
-    'All Tiers': 'all', 
-    'Masters': 'master', 
-    'Diamonds': 'diamond', 
-    'Platinums': 'platinum', 
-    'Golds': 'gold', 
-    'Silvers': 'silver', 
+    'All Tiers': 'all',
+    'Masters': 'master',
+    'Diamonds': 'diamond',
+    'Platinums': 'platinum',
+    'Golds': 'gold',
+    'Silvers': 'silver',
     'Bronzes': 'bronze'
 }
 
@@ -51,6 +51,7 @@ avatar_map = {
     'brick': '/assets/T_UI_Portrait_Tiny_Brick.png',
     'gumi': '/assets/T_UI_Portrait_Tiny_Gumi.png',
     'cindy': '/assets/T_UI_Portrait_Tiny_Cindy.png',
+    'lettuce': '/assets/T_UI_Portrait_Tiny_Lettuce.png',
     'octavia': '/assets/T_UI_Portrait_Tiny_Octavia.png',
     'rapunzel': '/assets/T_UI_Portrait_Tiny_Rapunzel.png',
     'red': '/assets/T_UI_Portrait_Tiny_Red.png',
@@ -63,10 +64,11 @@ avatar_map = {
     'barrier':  '/assets/T_UI_Icon_Enchant_Barrier.png',
     'beam': '/assets/T_UI_Icon_Enchant_Beam.png',
     'pink': '/assets/T_UI_Icon_Enchant_Unyielding.png',
+    'jump': '/assets/T_UI_Icon_Enchant_SuperJump.png',
 }
 
 abi_map = {
-    'don': 
+    'don':
         {
             'abi1': '/assets/abilities/T_UI_DonQuixote_Ability_01_Common.png',
             'abi2': '/assets/abilities/T_UI_DonQuixote_Ability_02_Common.png',
@@ -319,6 +321,13 @@ abi_map = {
             'abi4': '/assets/abilities/T_UI_Ducky_Ability_04_Common.png',
             'abi5': '/assets/abilities/T_UI_Ducky_Ability_05_Rare.png'
         },
+    'lettuce': {
+            'abi1': '/assets/abilities/T_UI_Lettuce_Ability_01_Common.png',
+            'abi2': '/assets/abilities/T_UI_Lettuce_Ability_02_Common.png',
+            'abi3': '/assets/abilities/T_UI_Lettuce_Ability_03_Common.png',
+            'abi4': '/assets/abilities/T_UI_Lettuce_Ability_04_Common.png',
+            'abi5': '/assets/abilities/T_UI_Lettuce_Ability_05_Rare.png'
+        },
 }
 
 
@@ -330,10 +339,19 @@ enc_info_dict = {
     'beam': '''PRUDENT BEAM -- When not striking for 5s or inflicting stun/transform/freeze/speed decrease, \n
                 a beam fires down on next attack, dealing 450 AoE. (Cooldown:2s)''',
     'pink': 'UNYIELDING -- When HP falls below 20%, restores 2% HP every 0.2s until HP reaches 60%. (Cooldown:80s)',
+    'jump': 'SUPER JUMP -- Will leap towards the direction facing.(Cooldown:10s)'
 }
 
 abi_desc_dict = {
-    'don': 
+    'lettuce':
+        {
+            'abi1': 'Pilot Study -- Hitting an opponent with the last hit of Ground Attack creates essence that grants 20% Ultimate cooldown gauge. Increases Ground Attack damage.',
+            'abi2': 'Positive Feedback -- Hitting an opponent with Aerial Skill creates essence that heals 100 HP at level 1.',
+            'abi3': 'Adaptation -- Increases Madam Lettuce\'s Attack when not hit for 5 s. Increases Movement Speed for 5 s when hit by an opponent.',
+            'abi4': 'Variable Lockdown -- Decreases damage received for 2 s when using Ultimate.',
+            'abi5': 'Magnum Opus -- Adds 1 Skill stack, and increases Ground Skill\'s damage.'
+        },
+    'don':
         {
             'abi1': 'Enhanced Shield -- Increases the advancement speed of Skill by 12% and the final attack pushes the opponent back further.',
             'abi2': 'Rosinante`s Cheer -- Damage from the opponent decreased.',
@@ -587,4 +605,3 @@ abi_desc_dict = {
             'abi5': 'It\'s Not Over Yet -- Each successful Ground and Aerial Attacks extend transformation duration by seconds respectively. This cannot be used to extend the transformation duration past its maximum.'
         },
 }
-

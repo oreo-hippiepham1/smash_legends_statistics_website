@@ -6,8 +6,10 @@ import pandas as pd
 
 
 DATA_PATH = './data/'
-data = pd.read_csv(DATA_PATH+'df_onehot.csv')
-df = tf.get_df_onehot(data)
+#data = pd.read_csv(DATA_PATH+'df_onehot.csv')
+
+#_, df = tf.data_pipeline_raw(DATA_PATH)
+df = pd.read_csv(DATA_PATH + 'df_onehot.csv')
 
 def get_abi_count(df):
     abi_count = df.copy()
@@ -26,7 +28,7 @@ def get_abi_count(df):
 
     for ability in abi_list:
         abi_count[ability+'_pickrate'] = round(abi_count[ability+'_pick'] / abi_total * 100, 2)
-    
+
     return abi_count
 
 def get_abi(df, legend):
@@ -39,4 +41,3 @@ def get_abi(df, legend):
     return_list.extend([abi+'_pickrate' for abi in abi_list])
 
     return df.loc[:, return_list]
-

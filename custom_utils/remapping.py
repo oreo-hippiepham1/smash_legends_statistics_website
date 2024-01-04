@@ -13,7 +13,7 @@ l_mapping = {
 
 c_mapping = {
     1: 'health', 2: 'attack', 3: 'lightning',
-    4: 'barrier', 5: 'beam', 6: 'pink'
+    4: 'barrier', 5: 'beam', 6: 'pink', 0: 'e0', 51: 'jump'
 }
 
 m_mapping = {
@@ -50,6 +50,8 @@ e_map = {
     'barrier':  'e_gray',
     'beam': 'e_blue',
     'pink': 'e_pink',
+    'e0': 'e_0',
+    'jump': 'e_cyan'
 }
 
 color_map = {
@@ -89,5 +91,5 @@ color_map = {
     'wolfgang': '#7b7e84',
     'zepp': '#8effd5',
     'ducky': '#f5f4f0',
+    'lettuce': '#cd254f',
 }
-

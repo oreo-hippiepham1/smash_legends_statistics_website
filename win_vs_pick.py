@@ -6,24 +6,24 @@ from viz import pick_rate, win_rate
 import plotly.express as px
 import pandas as pd
 from PIL import Image
-import os 
+import os
 
 
 def win_vs_pick_df(df, map_col, tier_col):
     pickrate_df = pick_rate.pick_rate_tier_map(df, map_col, tier_col)
-    winrate_df = win_rate.win_rate_tier_map(df, map_col, tier_col) 
+    winrate_df = win_rate.win_rate_tier_map(df, map_col, tier_col)
 
     winpickrate = pd.merge(pickrate_df, winrate_df, on='legend', how='inner')
     return winpickrate
 
 def plot_win_vs_pick(df, show_icons: bool=True):
     fig = px.scatter(df, x='pickrate', y='winrate', color='legend',
-                 color_discrete_map=color_map, size=[2]*36)
-    
+                 color_discrete_map=color_map, size=[2]*37)
+
     if show_icons:
         fig = px.scatter(df, x='pickrate', y='winrate',
                         hover_name='legend', hover_data=['legend', 'pickrate', 'winrate'])
-        
+
         # add images
         for i, row in df.iterrows():
             legend = row['legend']
@@ -68,8 +68,6 @@ def plot_win_vs_pick(df, show_icons: bool=True):
         line=dict(color='blue', width=2, dash='dash'),
         name="Average Pick Rate"
     )
-
-    
 
     # Calculate the range for the plot
     min_pickrate = df['pickrate'].min()
